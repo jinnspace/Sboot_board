@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.board.dao.IMemberDao">
+<resultMap id="memberMap" type="java.util.HashMap"></resultMap> 
+
+<select id="getMember" resultType="com.test.board.dto.MemberVO">
+	 	select * from memberB  where ID=#{param1}
+</select>
+
+
+<insert id="insertMember" parameterType="com.test.board.dto.MemberVO" >
+		insert into memberB (ID, PWD, NAME, PHONE)
+		values(#{ID} , #{PWD}, #{NAME}, #{PHONE}) <!--#{mvo.param1} -->
+</insert>
+
+</mapper>

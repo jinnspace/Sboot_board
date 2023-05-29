@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.board.dao.IBoardDao">
+<resultMap id="boardMap" type="java.util.HashMap"></resultMap> 
+
+<select id="Bgetboard"  resultType="com.test.board.dto.BoardVO">
+		select * from testB
+</select>
+
+<select id="boardView"  resultType="com.test.board.dto.BoardVO">
+		select * from  testB where BRDNO=#{param1}
+</select>
+
+<insert id="insertBoard" parameterType="com.test.board.dto.BoardVO">
+		insert into testB (ID, BRDNAME, BRDCONTENT)
+		values(#{ID} , #{BRDNAME}, #{BRDCONTENT})
+</insert>
+
+<update id="updateBoard" parameterType="com.test.board.dto.BoardVO">
+		update testB set BRDNAME=#{BRDNAME}, BRDCONTENT=#{BRDCONTENT}
+			where BRDNO=#{BRDNO}
+</update>
+
+<delete id="deleteBoard">
+	delete from testB where BRDNO=#{param1}
+</delete>
+	
+
+
+
+
+
+
+	
+
+
+</mapper>
